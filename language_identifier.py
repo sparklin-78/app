@@ -7,6 +7,8 @@ Original file is located at
     https://colab.research.google.com/drive/1DvDSBN2Z4o-bV-EtHv0lZZsN0DkM19VO
 """
 
+!pip install session-info
+
 import numpy as np # linear algerbra
 import pandas as pd # data processing
 import matplotlib.pyplot as plt # plotting
@@ -47,6 +49,9 @@ data = pd.read_csv('/content/drive/MyDrive/Colab Notebooks/dataset.csv', encodin
                                                            # utf-8 encoding use to be able to read text in other langauge
 print(data.shape)  # shape of the dataset
 data.head()
+
+from google.colab import drive
+drive.mount('/content/drive')
 
 data.head()
 
@@ -373,3 +378,8 @@ sent = cv.transform([sent])
 ans = model.predict(sent)
 ans = np.argmax(ans)
 le.inverse_transform([ans])
+
+import session_info
+session_info.show()
+
+!pip freeze > requirements.txt
